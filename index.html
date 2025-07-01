@@ -293,9 +293,9 @@
                     
                     <h3>Basic Boundary Syntax</h3>
                     <div class="code-block">
-Boundary("Phase 1/2");
+Boundary("StartCemetery");
                     </div>
-                    <p>This creates a transition point between Phase 1 and Phase 2, returning a probability distribution for when the change occurred.</p>
+                    <p>This provides an estimate of when the cemetery started to be used.</p>
 
                     <h3>Essential Structure</h3>
                     <div class="code-block">
@@ -328,7 +328,7 @@ Sequence("Roman Cemetery"){
                     <p>When OxCal processes boundaries, it produces:</p>
                     <ul>
                         <li><strong>Probability distributions</strong> showing the likely date range for transitions</li>
-                        <li><strong>68.2% and 95.4% confidence intervals</strong> for boundary dates</li>
+                        <li><strong>68.2% and 95.4% HPD intervals</strong> for boundary dates</li>
                         <li><strong>Agreement indices</strong> showing how well the model fits the data</li>
                     </ul>
                 </div>
@@ -344,13 +344,13 @@ Sequence("Roman Cemetery"){
 
                     <div class="code-block">
 Sequence("Single Phase Site"){
-  Boundary("Start Occupation");
-  Phase("Main Occupation"){
-    R_Date("Hearth-1", 3450, 30);
-    R_Date("Hearth-2", 3420, 25);
-    R_Date("Pit-1", 3400, 35);
+  Boundary("StartBurial");
+  Phase("Cemetery"){
+    R_Date("Skeleton1", 1850, 30);
+    R_Date("Skeleton3", 1720, 25);
+    R_Date("SSkeleton", 1700, 35);
   };
-  Boundary("End Occupation");
+  Boundary("EndBurial");
 };
                     </div>
 
