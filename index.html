@@ -276,12 +276,12 @@
                     </ul>
 
                     <div class="example-scenario">
-                        <h4>🏛️ Scenario: Bronze Age Settlement</h4>
-                        <p>Imagine excavating a Bronze Age settlement with clear stratigraphic evidence for three phases:</p>
+                        <h4>🏛️ Scenario: Roman cemetery</h4>
+                        <p>Imagine excavating a Roman cemetery with clear stratigraphic evidence for three phases:</p>
                         <ul>
-                            <li><strong>Phase 1:</strong> Initial settlement (earliest layers)</li>
-                            <li><strong>Phase 2:</strong> Expansion period (middle layers)</li>
-                            <li><strong>Phase 3:</strong> Final occupation (latest layers)</li>
+                            <li><strong>Phase 1:</strong> Initial cemetery phase (earliest layers)</li>
+                            <li><strong>Phase 2:</strong> Expansion of cemetery (middle layers)</li>
+                            <li><strong>Phase 3:</strong> Latest cemetery (latest layers)</li>
                         </ul>
                         <p>Boundaries help us estimate exactly when each phase began and ended, and how long each lasted.</p>
                     </div>
@@ -302,13 +302,13 @@ Boundary("Phase 1/2");
 Sequence("Site Model"){
   Boundary("Start Phase 1");
   Phase("Phase 1"){
-    R_Date("Sample-001", 4200, 30);
-    R_Date("Sample-002", 4150, 25);
+    R_Date("Sample-001", 1930, 20);
+    R_Date("Sample-002", 1900, 25);
   };
   Boundary("Phase 1/2");
   Phase("Phase 2"){
-    R_Date("Sample-003", 3900, 35);
-    R_Date("Sample-004", 3850, 30);
+    R_Date("Sample-003", 1850, 25);
+    R_Date("Sample-004", 1825, 20);
   };
   Boundary("End Phase 2");
 };
