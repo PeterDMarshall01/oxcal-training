@@ -37,10 +37,10 @@ Plot()
 {
     Phase("Early_Roman_Cemetery_Use")
     {
-        R_Date("Burial_12_Human_Bone", 1920, 35);    // ~50-130 AD
-        R_Date("Burial_45_Coffin_Wood", 1885, 40);   // ~70-220 AD  
-        R_Date("Burial_78_Human_Bone", 1945, 30);    // ~25-120 AD
-        R_Date("Burial_103_Grave_Goods", 1900, 45);  // ~50-210 AD
+        R_Date("Burial_12", 1920, 35);    // ~50-130 AD
+        R_Date("Burial_45", 1885, 40);   // ~70-220 AD  
+        R_Date("Burial_78", 1945, 30);    // ~25-120 AD
+        R_Date("Burial_103", 1900, 45);  // ~50-210 AD
     };
 };
 ```
@@ -53,14 +53,14 @@ Dating the initial establishment of a Roman cemetery:
 ```
 Phase("Cemetery_Foundation_Longthorpe")
 {
-    R_Date("Burial_1_Cremation", 1950, 35);      // Military cemetery
-    R_Date("Burial_3_Coffin_Nails", 1935, 40);  // Early timber coffins
-    R_Date("Burial_7_Human_Bone", 1965, 30);    // Conquest period burial
+    R_Date("Burial_1", 1950, 35);      // Military cemetery
+    R_Date("Burial_3", 1935, 40);  // Early timber coffins
+    R_Date("Burial_7e", 1965, 30);    // Conquest period burial
 };
 ```
 
 ### 2. Cemetery Use Phases
-For burials spanning recognized cemetery periods:
+For burials spanning recognised cemetery periods:
 
 ```
 Phase("Middle_Roman_Dorchester_Cemetery")
@@ -119,33 +119,8 @@ Plot()
 - Cemetery end boundary: **120-160 AD** (68% probability) - transition to new area
 - Cemetery use span: **60-110 years** (68% probability) - typical for Roman urban cemetery
 
-## Common Issues in Roman Cemetery Dating
 
-### Problem 1: Poor Agreement - Mixed Periods
-**Symptoms:** Low Agreement Index (A < 60%)
-**Causes:** 
-- Early Saxon burials mixed with Late Roman
-- Residual Iron Age material
-- Laboratory contamination
-- Intrusive medieval burials
-
-**Example:**
-```
-Phase("Mixed_Period_Burials_York")
-{
-    R_Date("Burial_23_Roman", 1750, 30);     // ~210-380 AD
-    R_Date("Burial_67_Roman", 1780, 35);     // ~150-330 AD  
-    R_Date("Burial_89_Saxon", 1450, 40);     // ~540-650 AD - OUTLIER
-};
-```
-
-**Solutions:**
-1. Review burial orientations and grave goods
-2. Consider post-Roman cemetery reuse
-3. Apply outlier analysis to Saxon intrusions
-4. Separate Early Saxon phase
-
-### Problem 2: Very Wide Cemetery Use Span
+### Problem 1: Very Wide Cemetery Use Span
 **Causes:**
 - Long-duration cemetery use (common in Roman towns)
 - Mixed urban and rural burial traditions
