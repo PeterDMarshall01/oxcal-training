@@ -3,7 +3,7 @@
 
 ## What is a Phase Model?
 
-A **Phase** in OxCal represents a period of time during which multiple events occurred, but where we don't know (or can't determine) the exact chronological order of those events within the phase. This is particularly relevant for Roman cemetery studies where burials within a cemetery area or burial tradition are assumed to be broadly contemporaneous, even though individual interments may span decades or centuries.
+A **Phase** in OxCal represents a period of time during which multiple events occurred, but where we don't know (or can't determine) the exact chronological order of those events within the phase, ie there is no stratigraphic relationship between the dated samples. This is particularly relevant for Roman cemetery studies where burials within a cemetery area or burial tradition are assumed to be broadly contemporaneous, even though individual interments may span decades or centuries, and they do not intercut each other.
 
 ## Basic Syntax
 
