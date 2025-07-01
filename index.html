@@ -276,14 +276,14 @@
                     </ul>
 
                     <div class="example-scenario">
-                        <h4>🏛️ Scenario: Roman cemetery</h4>
-                        <p>Imagine excavating a Roman cemetery with clear stratigraphic evidence for three phases:</p>
+                        <h4>🏛️ Scenario: Roman Cemetery</h4>
+                        <p>Imagine excavating a Romano-British cemetery with clear evidence for continuous burial activity:</p>
                         <ul>
-                            <li><strong>Phase 1:</strong> Initial cemetery phase (earliest layers)</li>
-                            <li><strong>Phase 2:</strong> Expansion of cemetery (middle layers)</li>
-                            <li><strong>Phase 3:</strong> Latest cemetery (latest layers)</li>
+                            <li><strong>Single Phase:</strong> Roman burial period (1st-5th centuries CE)</li>
+                            <li><strong>Multiple burials:</strong> 13 radiocarbon dates from human bone collagen</li>
+                            <li><strong>Potential outlier:</strong> One much later date possibly from post-Roman disturbance</li>
                         </ul>
-                        <p>Boundaries help us estimate exactly when each phase began and ended, and how long each lasted.</p>
+                        <p>Boundaries help us estimate when the cemetery was first established, when burials ceased, and how long the burial period lasted.</p>
                     </div>
                 </div>
 
@@ -299,18 +299,18 @@ Boundary("Phase 1/2");
 
                     <h3>Essential Structure</h3>
                     <div class="code-block">
-Sequence("Site Model"){
-  Boundary("Start Phase 1");
-  Phase("Phase 1"){
-    R_Date("Sample-001", 1930, 20);
-    R_Date("Sample-002", 1900, 25);
+Sequence("Roman Cemetery"){
+  Boundary("Start Cemetery Use");
+  Phase("Roman Burials"){
+    R_Date("SUERC-58710", 1649, 31);
+    R_Date("SUERC-58711", 1748, 29);
+    R_Date("SUERC-58712", 1855, 31);
+    R_Date("SUERC-58713", 1759, 29);
+    R_Date("SUERC-58717", 1874, 28);
+    R_Date("BRAMS-4175", 1967, 27);
   };
-  Boundary("Phase 1/2");
-  Phase("Phase 2"){
-    R_Date("Sample-003", 1850, 25);
-    R_Date("Sample-004", 1825, 20);
-  };
-  Boundary("End Phase 2");
+  Boundary("End Cemetery Use");
+  Span("Cemetery Duration");
 };
                     </div>
 
@@ -384,26 +384,34 @@ Boundary("Pre-Roman/Roman");
                     <h2>🎮 Interactive Exercise</h2>
                     
                     <div class="example-scenario">
-                        <h4>📊 Exercise: Multi-Phase Settlement</h4>
-                        <p><strong>Site:</strong> Medieval village with three occupation phases</p>
-                        <p><strong>Radiocarbon dates:</strong></p>
+                        <h4>📊 Exercise: Roman Cemetery</h4>
+                        <p><strong>Site:</strong> Romano-British cemetery with single burial phase</p>
+                        <p><strong>Radiocarbon dates from human bone collagen:</strong></p>
                         <ul>
-                            <li><strong>Early Phase:</strong> Lab-001 (1150±25 BP), Lab-002 (1130±30 BP)</li>
-                            <li><strong>Middle Phase:</strong> Lab-003 (950±25 BP), Lab-004 (920±35 BP), Lab-005 (900±30 BP)</li>
-                            <li><strong>Late Phase:</strong> Lab-006 (750±25 BP), Lab-007 (720±30 BP)</li>
+                            <li>SUERC-58710 (1649±31 BP), SUERC-58711 (1748±29 BP), SUERC-58712 (1855±31 BP)</li>
+                            <li>SUERC-58713 (1759±29 BP), SUERC-58717 (1874±28 BP), SUERC-59634 (1664±29 BP)</li>
+                            <li>SUERC-59806 (1713±27 BP), SUERC-61220 (1920±29 BP), SUERC-61221 (1927±29 BP)</li>
+                            <li>BRAMS-4172 (1751±25 BP), BRAMS-4173 (1778±25 BP), BRAMS-4174 (1739±25 BP)</li>
+                            <li>BRAMS-4175 (1967±27 BP) - <em>earliest burial</em></li>
                         </ul>
+                        <p><em>Note: One date (SUERC-61222: 1100±27 BP) appears much later and may represent post-Roman activity</em></p>
                     </div>
 
                     <div class="interactive-exercise">
                         <h4>🎯 Your Task:</h4>
-                        <p>Create an OxCal model with appropriate boundaries for this three-phase site. Include Start/End boundaries and transition boundaries.</p>
+                        <p>Create an OxCal model for this Roman cemetery with appropriate Start and End boundaries. This is a single burial phase, so focus on estimating when the cemetery was first used and when burials ceased.</p>
                         
                         <textarea class="exercise-input" id="userCode" placeholder="Type your OxCal code here...
 
 Hint: Start with:
-Sequence('Medieval Village'){
-  Boundary('Start Early Phase');
-  // Add your phases and dates here
+Sequence('Roman Cemetery'){
+  Boundary('Start Cemetery Use');
+  Phase('Roman Burials'){
+    // Add your R_Date() commands here
+    // Don't forget the later date - it might be an outlier!
+  };
+  Boundary('End Cemetery Use');
+  Span('Cemetery Duration');
 };"></textarea>
                         
                         <button class="btn" onclick="checkExercise()">Check My Answer</button>
@@ -596,30 +604,30 @@ Phase("Pottery Style B"){
             
             if (userCode.includes('boundary') && userCode.includes('start')) {
                 score += 20;
-                messages.push('✅ Great! You included start boundaries.');
+                messages.push('✅ Great! You included a start boundary.');
             } else {
-                messages.push('❌ Missing: You need start boundaries for phases.');
+                messages.push('❌ Missing: You need a start boundary for the cemetery.');
             }
             
             if (userCode.includes('phase')) {
                 score += 20;
-                messages.push('✅ Perfect! You included Phase{} blocks.');
+                messages.push('✅ Perfect! You included a Phase{} block.');
             } else {
-                messages.push('❌ Missing: You need Phase{} blocks for grouping dates.');
+                messages.push('❌ Missing: You need a Phase{} block for grouping the burials.');
             }
             
-            if (userCode.includes('r_date')) {
+            if (userCode.includes('r_date') && (userCode.includes('suerc') || userCode.includes('brams'))) {
                 score += 20;
-                messages.push('✅ Excellent! You included R_Date() commands.');
+                messages.push('✅ Excellent! You included the Roman cemetery R_Date() commands.');
             } else {
-                messages.push('❌ Missing: You need R_Date() commands for the radiocarbon dates.');
+                messages.push('❌ Missing: You need R_Date() commands for the Roman cemetery dates.');
             }
             
-            if (userCode.includes('end') || userCode.includes('late')) {
+            if (userCode.includes('span') || (userCode.includes('end') && userCode.includes('boundary'))) {
                 score += 20;
-                messages.push('✅ Nice work! You considered end boundaries or transitions.');
+                messages.push('✅ Nice work! You included end boundaries or span calculations.');
             } else {
-                messages.push('❌ Consider: Adding end boundaries or transition boundaries.');
+                messages.push('❌ Consider: Adding an end boundary and Span() to calculate cemetery duration.');
             }
             
             // Show feedback
