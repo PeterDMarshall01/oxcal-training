@@ -357,9 +357,9 @@ Sequence("Single Phase Site"){
                     <h3>Transition Boundaries</h3>
                     <p>Used between different archaeological phases:</p>
                     <div class="code-block">
-Boundary("Early Bronze Age/Middle Bronze Age");
-Boundary("Settlement/Abandonment");
-Boundary("Pre-Roman/Roman");
+Boundary("StartPhase1");
+Boundary("EndPhase1StartPhase2");
+Boundary("EndPhase2");
                     </div>
 
                     <h3>Named vs Unnamed Boundaries</h3>
@@ -441,20 +441,29 @@ Sequence('Roman Cemetery'){
 
                     <div class="code-block">
 Sequence("Site Model"){
-  Boundary("Start Phase 1");
+  Boundary("StartPhase1");
   Phase("Phase 1"){
-    R_Date("Sample-001", 4200, 30);
-    R_Date("Sample-002", 4150, 25);
-  };
-  Boundary("End Phase 1");
-  Span("Duration Phase 1");  // Calculates length of Phase 1
+    R_Date("Sample-001", 1800, 30);
+    R_Date("Sample-002", 1810, 25);
+    R_Date("Sample-003", 1805, 25);
+    R_Date("Sample-004", 1780, 25);
+    R_Date("Sample-005", 1790, 25);
+};
+  Boundary("EndPhase1");
+  Span("DurationPhase1");  // Calculates length of Phase 1
   
-  Boundary("Start Phase 2");
+  Boundary("StartPhase2");
   Phase("Phase 2"){
-    R_Date("Sample-003", 3900, 35);
-  };
-  Boundary("End Phase 2");
-  Span("Duration Phase 2");  // Calculates length of Phase 2
+    R_Date("Sample-006", 1750, 35);
+  R_Date("Sample-007", 1700, 35);
+  R_Date("Sample-008", 1730, 35);
+  R_Date("Sample-009", 1720, 35);
+R_Date("Sample-010", 1680, 35);
+  R_Date("Sample-011", 1700, 35);
+   R_Date("Sample-012", 317350, 35);
+    };
+  Boundary("EndPhase2");
+  Span("DurationPhase2");  // Calculates length of Phase 2
 };
                     </div>
 
@@ -463,9 +472,9 @@ Sequence("Site Model"){
 
                     <div class="code-block">
 Sequence("Site Model"){
-  Boundary("End Phase 1");
-  Interval("Gap Phase 1-2");  // Time between phases
-  Boundary("Start Phase 2");
+  Boundary("EndPhase1");
+  Interval("GapPhase1-2");  // Time between phases
+  Boundary("StartPhase2");
 };
                     </div>
 
